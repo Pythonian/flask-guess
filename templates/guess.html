@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Language</title>
+</head>
+
+<body>
+    <h1>Guess the Language</h1>
+    <p>My guess is {{ guess }}</p>
+    <p>Was I right?</p>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {% for option in form.answer %}
+            {{ option }} {{ option.label }}
+            {% endfor %}
+            {% for error in form.answer.errors %}
+            [{{ error }}]
+            {% endfor %}
+        </p>
+        {{ form.submit }}
+    </form>
+</body>
+
+</html>
